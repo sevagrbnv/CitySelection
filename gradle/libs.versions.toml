@@ -8,6 +8,7 @@ androidx-lifecycle = "2.11.0"
 composeMultiplatform = "1.12.1"
 kotlin = "2.4.20"
 material3 = "1.12.0-alpha03"
+navigation = "2.9.2"
 
 ktor = "3.4.2"
 koin = "4.2.0"
@@ -17,6 +18,7 @@ serialization = "1.10.0"
 kotlinxIo = "0.8.2"
 
 [libraries]
+androidx-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 compose-uiTooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeMultiplatform" }

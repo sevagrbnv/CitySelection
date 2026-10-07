@@ -2,7 +2,12 @@ package com.sevagrnbv.cityselection.cities.presentation
 
 import com.sevagrnbv.cityselection.core.network.NetworkError
 
-internal data class CityListItem(val id: Long, val name: String, val countryName: String)
+internal data class CityListItem(
+    val id: Long,
+    val name: String,
+    val countryName: String,
+    val population: Long? = null,
+)
 
 internal data class CitiesState(
     val query: String = "",

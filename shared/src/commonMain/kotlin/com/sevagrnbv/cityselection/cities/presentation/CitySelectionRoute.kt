@@ -12,6 +12,14 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.toRoute
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cityselection.shared.generated.resources.Res
@@ -25,12 +33,34 @@ import org.jetbrains.compose.resources.stringResource
 /** Контейнер фичи выбора города; нижняя панель принадлежит фиче, а не экрану списка. */
 @Composable
 internal fun CitySelectionRoute() {
-    Scaffold(bottomBar = { CitySelectionBottomBar() }) { padding ->
-        CitiesRoute(
-            modifier = Modifier.fillMaxSize()
-                .padding(padding)
-                .consumeWindowInsets(padding),
-        )
+    val navController = rememberNavController()
+    val entry by navController.currentBackStackEntryAsState()
+    val showBottomBar = entry?.destination?.hasRoute<CityListDestination>() == true
+    val keyboard = LocalSoftwareKeyboardController.current
+    Scaffold(bottomBar = { if (showBottomBar) CitySelectionBottomBar() }) { padding ->
+        NavHost(
+            navController = navController,
+            startDestination = CityListDestination,
+            modifier = Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding),
+        ) {
+            composable<CityListDestination> {
+                CitiesRoute(onCitySelected = { city ->
+                    keyboard?.hide()
+                    navController.navigate(CityDetailsDestination(
+                        id = city.id,
+                        name = city.name,
+                        countryName = city.countryName,
+                        population = city.population,
+                    )) { launchSingleTop = true }
+                })
+            }
+            composable<CityDetailsDestination> { backStackEntry ->
+                CityDetailsRoute(
+                    city = backStackEntry.toRoute<CityDetailsDestination>(),
+                    onBack = { navController.popBackStack() },
+                )
+            }
+        }
     }
 }
 

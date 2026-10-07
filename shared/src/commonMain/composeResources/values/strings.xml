@@ -17,4 +17,13 @@
     <string name="cities_item_label">%1$s, %2$s</string>
     <string name="cities_tab_list">Список</string>
     <string name="cities_tab_map">Карта</string>
+    <string name="city_details_title">Информация о городе</string>
+    <string name="city_details_name">Город</string>
+    <string name="city_details_country">Страна</string>
+    <string name="city_details_population">Население</string>
+    <string name="city_details_population_value">%1$s чел</string>
+    <string name="city_details_unknown_population">Нет данных</string>
+    <string name="city_details_search">Поиск информации о городе</string>
+    <string name="city_details_browser_error">Не удалось открыть браузер</string>
+    <string name="navigation_back">Назад</string>
 </resources>

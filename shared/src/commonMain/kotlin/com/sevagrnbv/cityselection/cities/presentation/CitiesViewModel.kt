@@ -97,7 +97,7 @@ internal class CitiesViewModel(
                     val page = result.value
                     val existing = if (append) (state.content as? CitiesContent.Data)?.items.orEmpty() else emptyList()
                     val received = page.items.map { city ->
-                        CityListItem(city.id, city.name, countryNames.displayName(city.countryCode))
+                        CityListItem(city.id, city.name, countryNames.displayName(city.countryCode), city.population)
                     }
                     val items = (existing + received).distinctBy { it.id }
                     nextPage = if (page.hasNextPage) page.page + 1 else null

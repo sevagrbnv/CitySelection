@@ -31,7 +31,7 @@ class CitiesViewModelTest {
     @Test
     fun loadsFirstPageAndMapsCountryInPresentation() {
         val gate = CompletableDeferred<Unit>()
-        val repository = FakeRepository { gate.await(); pageResult(1, listOf(city(1)), total = 2) }
+        val repository = FakeRepository { gate.await(); pageResult(1, listOf(city(1).copy(population = 12_655_000)), total = 2) }
         withViewModel(repository) { vm ->
             runCurrent()
             assertEquals(CitiesContent.Loading, vm.current.content)
@@ -39,7 +39,7 @@ class CitiesViewModelTest {
             gate.complete(Unit)
             runCurrent()
             val content = assertIs<CitiesContent.Data>(vm.current.content)
-            assertEquals(listOf(CityListItem(1, "City 1", "Россия")), content.items)
+            assertEquals(listOf(CityListItem(1, "City 1", "Россия", 12_655_000)), content.items)
             assertTrue(content.hasNextPage)
         }
     }

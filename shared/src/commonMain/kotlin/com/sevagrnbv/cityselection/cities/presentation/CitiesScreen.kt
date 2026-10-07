@@ -1,6 +1,7 @@
 package com.sevagrnbv.cityselection.cities.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -63,6 +64,7 @@ import org.orbitmvi.orbit.compose.collectAsState
 
 @Composable
 internal fun CitiesRoute(
+    onCitySelected: (CityListItem) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: CitiesViewModel = koinViewModel(),
 ) {
@@ -73,6 +75,7 @@ internal fun CitiesRoute(
         onQueryChanged = viewModel::onQueryChanged,
         onLoadNextPage = { viewModel.loadNextPage() },
         onRetry = { viewModel.retry() },
+        onCitySelected = onCitySelected,
         modifier = modifier,
     )
 }
@@ -84,6 +87,7 @@ internal fun CitiesScreen(
     onQueryChanged: (String) -> Unit,
     onLoadNextPage: () -> Unit,
     onRetry: () -> Unit,
+    onCitySelected: (CityListItem) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val search = rememberTextFieldState(initialText = state.query)
@@ -149,7 +153,8 @@ internal fun CitiesScreen(
                     content,
                     state.nextPage,
                     onLoadNextPage,
-                    onRetry
+                    onRetry,
+                    onCitySelected,
                 )
             }
         }
@@ -162,6 +167,7 @@ private fun CitiesList(
     nextPage: NextPageState,
     onLoadNextPage: () -> Unit,
     onRetry: () -> Unit,
+    onCitySelected: (CityListItem) -> Unit,
 ) {
     val listState = rememberLazyListState()
     val loadCallback by rememberUpdatedState(onLoadNextPage)
@@ -180,6 +186,7 @@ private fun CitiesList(
     ) {
         items(content.items, key = { it.id }, contentType = { "city" }) { city ->
             ListItem(
+                modifier = Modifier.clickable { onCitySelected(city) },
                 headlineContent = {
                     Text(
                         stringResource(
@@ -307,14 +314,14 @@ internal fun CitiesScreenPreview() {
                 content = CitiesContent.Data(
                     listOf(
                         CityListItem(
-                            1,
-                            "Moscow",
-                            "Россия"
+                            id = 1,
+                            name = "Moscow",
+                            countryName = "Россия"
                         )
                     ), false
                 )
             ),
-            onQueryChanged = {}, onLoadNextPage = {}, onRetry = {},
+            onQueryChanged = {}, onLoadNextPage = {}, onRetry = {}, onCitySelected = {},
         )
     }
 }

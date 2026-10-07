@@ -6,7 +6,8 @@ Multiplatform и общий интерфейс Compose для Android и iOS.
 Сейчас реализован сетевой слой: получение городов с поиском и пагинацией,
 преобразование DTO, обработка ошибок и внедрение зависимостей. Реализован экран
 списка с Orbit, поиском, пагинацией, загрузкой и повтором после ошибок.
-Информация о городе и дополнительная карта ещё не реализованы.
+Реализованы переход к информации о городе, возврат к списку и внешний поиск
+по имени города. Дополнительная карта ещё не реализована.
 
 ## Структура
 
@@ -18,7 +19,8 @@ Multiplatform и общий интерфейс Compose для Android и iOS.
 ## Стек
 
 Kotlin, Compose Multiplatform, Ktor, kotlinx.serialization, Coroutines, Koin.
-Orbit управляет состоянием списка городов.
+Orbit управляет состоянием списка городов, Navigation Compose — переходами
+внутри фичи выбора города.
 Версии зависимостей зафиксированы в `gradle/libs.versions.toml`.
 
 ## Сборка и проверки
@@ -55,3 +57,5 @@ APK: `androidApp/build/outputs/apk/release/androidApp-release-unsigned.apk`.
 Описание сетевого слоя: [docs/network-layer.md](docs/network-layer.md).
 
 Состояния и логика списка: [docs/cities-screen.md](docs/cities-screen.md).
+
+Информация о городе и навигация: [docs/city-details.md](docs/city-details.md).
