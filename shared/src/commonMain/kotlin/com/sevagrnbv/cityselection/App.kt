@@ -1,16 +1,14 @@
 package com.sevagrnbv.cityselection
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.sevagrnbv.cityselection.cities.presentation.CitySelectionRoute
+import com.sevagrnbv.cityselection.theme.CitySelectionTheme
+import org.koin.compose.KoinIsolatedContext
+import org.koin.core.KoinApplication
 
 @Composable
-@Preview
-fun App() {
-    MaterialTheme {
-        Surface(modifier = Modifier.fillMaxSize()) {}
+fun App(appKoin: KoinApplication) {
+    KoinIsolatedContext(context = appKoin) {
+        CitySelectionTheme { CitySelectionRoute() }
     }
 }

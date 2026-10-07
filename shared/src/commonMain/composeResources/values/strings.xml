@@ -1,0 +1,20 @@
+<resources>
+    <string name="cities_title">Список городов</string>
+    <string name="cities_search_hint">Введите название города</string>
+    <string name="cities_clear_search">Очистить поиск</string>
+    <string name="cities_empty_title">Города не найдены</string>
+    <string name="cities_empty_description">Попробуйте изменить поисковый запрос</string>
+    <string name="cities_retry">Попробовать снова</string>
+    <string name="cities_network_error">Не удалось подключиться</string>
+    <string name="cities_network_description">Проверьте соединение и попробуйте снова</string>
+    <string name="cities_error_description">Попробуйте повторить запрос позже</string>
+    <string name="cities_timeout_error">Сервер не ответил вовремя</string>
+    <string name="cities_response_error">Не удалось загрузить города</string>
+    <string name="cities_server_error">Ошибка сервера</string>
+    <string name="cities_page_error">Не удалось загрузить следующие города</string>
+    <string name="cities_loading">Загрузка городов</string>
+    <string name="cities_loading_more">Загрузка следующих городов</string>
+    <string name="cities_item_label">%1$s, %2$s</string>
+    <string name="cities_tab_list">Список</string>
+    <string name="cities_tab_map">Карта</string>
+</resources>

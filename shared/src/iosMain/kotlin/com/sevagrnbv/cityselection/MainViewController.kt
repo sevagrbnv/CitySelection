@@ -6,6 +6,5 @@ import androidx.compose.ui.window.ComposeUIViewController
 internal val appKoin by lazy { com.sevagrnbv.cityselection.di.createAppKoin() }
 
 fun MainViewController(): platform.UIKit.UIViewController {
-    appKoin
-    return ComposeUIViewController { App() }
+    return ComposeUIViewController { App(appKoin) }
 }
