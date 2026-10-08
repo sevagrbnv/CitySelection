@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+        A4B7E2C8D9024ED186A08F01 /* MapLibre in Frameworks */ = {isa = PBXBuildFile; productRef = A4B7E2C8D9024ED186A08F02 /* MapLibre */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		1258852A8094F3317D1A7A7B /* CitySelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+                A4B7E2C8D9024ED186A08F01 /* MapLibre in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
+                A4B7E2C8D9024ED186A08F02 /* MapLibre */,
 			);
 			productName = iosApp;
 			productReference = 1258852A8094F3317D1A7A7B /* CitySelection.app */;
@@ -116,7 +122,10 @@
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FAC7CBB0904A63ED98FC63CB /* Products */;
-			projectDirPath = "";
+			packageReferences = (
+                A4B7E2C8D9024ED186A08F03 /* MapLibre distribution */,
+            );
+            projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				7AA18227C297B1CD322009F6 /* iosApp */,
@@ -165,6 +174,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+        A4B7E2C8D9024ED186A08F03 /* MapLibre distribution */ = {
+            isa = XCRemoteSwiftPackageReference;
+            repositoryURL = "https://github.com/maplibre/maplibre-gl-native-distribution";
+            requirement = { kind = exactVersion; version = 6.31.0; };
+        };
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+        A4B7E2C8D9024ED186A08F02 /* MapLibre */ = {
+            isa = XCSwiftPackageProductDependency;
+            package = A4B7E2C8D9024ED186A08F03 /* MapLibre distribution */;
+            productName = MapLibre;
+        };
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4584A56D5FC754C358F5F6E5 /* Debug */ = {

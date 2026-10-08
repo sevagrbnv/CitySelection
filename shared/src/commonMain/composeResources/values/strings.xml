@@ -5,8 +5,8 @@
     <string name="cities_empty_title">Города не найдены</string>
     <string name="cities_empty_description">Попробуйте изменить поисковый запрос</string>
     <string name="cities_retry">Попробовать снова</string>
-    <string name="cities_network_error">Не удалось подключиться</string>
-    <string name="cities_network_description">Проверьте соединение и попробуйте снова</string>
+    <string name="cities_network_error">Нет подключения\nк интернету</string>
+    <string name="cities_network_description">Проверьте соединение и попробуйте\nснова. Без интернета данные\nне загрузятся</string>
     <string name="cities_error_description">Попробуйте повторить запрос позже</string>
     <string name="cities_timeout_error">Сервер не ответил вовремя</string>
     <string name="cities_response_error">Не удалось загрузить города</string>
@@ -26,4 +26,10 @@
     <string name="city_details_search">Поиск информации о городе</string>
     <string name="city_details_browser_error">Не удалось открыть браузер</string>
     <string name="navigation_back">Назад</string>
+    <string name="map_loading">Загрузка карты</string>
+    <string name="map_load_error">Не удалось загрузить карту</string>
+    <string name="map_cities_error">Не удалось загрузить города в этой области</string>
+    <string name="map_empty">В этой области нет городов</string>
+    <string name="map_zoom_in">Приблизить карту</string>
+    <string name="map_zoom_out">Отдалить карту</string>
 </resources>

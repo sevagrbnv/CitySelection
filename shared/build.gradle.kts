@@ -43,6 +43,7 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.maplibre.android)
             implementation(libs.compose.uiToolingPreview)
         }
         iosMain.dependencies {
@@ -62,6 +63,7 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.androidx.navigation.compose)
+            implementation(libs.androidx.navigationevent.compose)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

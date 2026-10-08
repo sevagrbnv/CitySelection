@@ -13,6 +13,7 @@ kotlin {
 dependencies {
     implementation(project(":shared"))
     implementation(libs.koin.core)
+    implementation(libs.maplibre.android)
 
     implementation(libs.androidx.activity.compose)
 

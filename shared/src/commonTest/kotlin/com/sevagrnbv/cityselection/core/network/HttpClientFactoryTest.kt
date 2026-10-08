@@ -4,10 +4,10 @@ import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.HttpClientEngineFactory
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.MockEngineConfig
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.test.runTest
 
 class HttpClientFactoryTest {
     @Test
